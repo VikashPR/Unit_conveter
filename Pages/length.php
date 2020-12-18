@@ -1,11 +1,12 @@
 <?php
+
 require_once ('inc/function.php');
 
 $from_value = '';
-$from_unit = '';
-$to_value = '';
-$to_unit = '';
-    
+$from_unit  = '';
+$to_value   = '';
+$to_unit    = '';
+
 
 if($_POST['submit'])
 {

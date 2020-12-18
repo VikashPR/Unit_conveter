@@ -1,98 +1,55 @@
 <?php
+                            //NOTE   Length Function
+
+define('LENGTH_TO_METER',[
+    'inches'        => 0.0254, 
+    'foots'         => 0.3048,
+    'yards'         => 0.9144,
+    'miles'         => 1609.344,
+    'millimeters'   => 0.001,
+    'centimeters'   => 0.01,
+    'meters'        => 1,
+    'kilometers'    => 1000
+]);
 function conver_to_meters($value , $from_unit)
 {
-    
-    switch($from_unit)
+    // This dynamic statment is used insted of Switch statment
+    if(array_key_exists($from_unit , LENGTH_TO_METER))
     {
-        case "inches":
-            return $value = $value * 0.0254;
-            break;
-        case "foots":
-            return $value = $value * 0.3048;
-
-            break;
-        case "yards":
-            return $value = $value * 0.9144;
-
-            break;
-        case "miles":
-            return $value = $value * 1609.344;
-
-            break;
-        case "millimeters":
-            return $value = $value * 0.001;
-
-            break;
-        case "centimeters":
-            return $value = $value * 0.01;
-
-            break;
-        case "meters":
-            return $value = $value * 1;
-
-            break;
-        case "kilometers":
-            return $value = $value * 1000;
-            break;
-        
-        default:
-            echo"<br>" .
-        '<div class="alert alert-danger" role="alert">
-        Invalid Unit
-        </div>';
+        return $value * LENGTH_TO_METER[$from_unit];
     }
-
+    else
+    {
+    echo"<br>" .
+    '<div class="alert alert-danger" role="alert">
+    Invalid Unit
+    </div>';
+    }
 }
 function conver_from_meters($value , $to_unit)
 {
-    
-    switch($to_unit)
+    // This dynamic statment is used insted of Switch statment
+    if(array_key_exists($to_unit , LENGTH_TO_METER))
     {
-        case "inches":
-            return $value = $value / 0.0254;
-            break;
-        case "foots":
-            return $value = $value / 0.3048;
-
-            break;
-        case "yards":
-            return $value = $value / 0.9144;
-
-            break;
-        case "miles":
-            return $value = $value / 1609.344;
-
-            break;
-        case "millimeters":
-            return $value = $value / 0.001;
-
-            break;
-        case "centimeters":
-            return $value = $value / 0.01;
-
-            break;
-        case "meters":
-            return $value = $value / 1;
-
-            break;
-        case "kilometers":
-            return $value = $value / 1000;
-            break;
-        
-        default:
-            echo"<br>" .
+    return $value / LENGTH_TO_METER[$to_unit];
+    }
+    else
+    {
+        echo"<br>" .
         '<div class="alert alert-danger" role="alert">
         Invalid Unit
         </div>';
     }
-
 }
-
 function convert_length($value , $from_unit, $to_unit)
 {
     $meter_value = conver_to_meters($value , $from_unit);
     $new_value = conver_from_meters($meter_value , $to_unit);
     return $new_value;
 }
+
+                                //NOTE AREA FUNCTION
+
+                                
 
 ?>
