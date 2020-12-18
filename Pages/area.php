@@ -1,106 +1,6 @@
 <?php
 
-function conver_to_meters($value , $from_unit)
-{
-
-    switch($from_unit)
-    {
-        case "Sq_inches":
-            return $value = pow($value * 0.0254 , 2) ;
-            break;
-        case "Sq_foots":
-            return $value = pow($value * 0.3048 , 2) ;
-
-            break;
-        case "Sq_yards":
-            return $value = pow($value * 0.9144 , 2) ;
-
-            break;
-        case "Sq_miles":
-            return $value = pow($value * 1609.344 , 2) ;
-
-            break;
-        case "Sq_millimeters":
-            return $value = pow($value * 0.001 , 2)  ;
-
-            break;
-        case "Sq_centimeters":
-            return $value = pow($value * 0.01 , 2) ;
-
-            break;
-        case "Sq_meters":
-            return $value = pow($value * 1 , 2) ;
-
-            break;
-        case "Sq_kilometers":
-            return $value = pow($value * 1000 , 2) ;
-            break;
-        case "Sq_acer":
-            return $value = $value * 4046.8564224;
-            break;
-        case "Sq_hectare":
-            return $value = $value * 10000;
-            break;
-        default:
-            echo"<br>" .
-        '<div class="alert alert-danger" role="alert">Invalid Unit </div>';
-    }
-
-}
-function conver_from_meters($value , $to_unit)
-{
-    
-    switch($to_unit)
-    {
-        case "Sq_inches":
-            return $value = $value / 0.0254;
-            break;
-        case "Sq_foots":
-            return $value = $value / 0.3048;
-
-            break;
-        case "Sq_yards":
-            return $value = $value / 0.9144;
-
-            break;
-        case "Sq_miles":
-            return $value = $value / 1609.344;
-
-            break;
-        case "Sq_millimeters":
-            return $value = $value / 0.001;
-
-            break;
-        case "Sq_centimeters":
-            return $value = $value / 0.01;
-
-            break;
-        case "Sq_meters":
-            return $value = $value / 1;
-
-            break;
-        case "Sq_kilometers":
-            return $value = $value / 1000;
-            break;
-        case "Sq_acer":
-            return $value = $value / 4046.8564224;
-            break;
-        case "Sq_hectare":
-            return $value = $value / 1000;
-            break;
-        
-        default:
-            echo"<br>" .
-        '<div class="alert alert-danger" role="alert">Invalid Unit</div>';
-    }
-
-}
-function convert_length($value , $from_unit, $to_unit)
-{
-    $meter_value = conver_to_meters($value , $from_unit);
-    $new_value = conver_from_meters($meter_value , $to_unit);
-    return $new_value;
-}
+include_once('inc/function.php');
 
 $from_value = '';
 $from_unit = '';
@@ -117,7 +17,7 @@ if($_POST['submit'])
     $to_value   =  $_POST['to_value'];
     $to_unit    =  $_POST['to_unit'];
 
-    $to_value = convert_length($from_value , $from_unit , $to_unit);
+    $to_value = convert_Sq_length($from_value , $from_unit , $to_unit);
 
 
     echo "<br>".
