@@ -12,16 +12,16 @@ define('LENGTH_TO_METER',[
     'meters'            => 1,
     'kilometers'        => 1000,
     // !Sq_meter values
-    'Sq_inches'         =>   pow(0.0254 , 2),
-    'Sq_foots'          =>   pow(0.3048 , 2),
-    'Sq_yards'          =>   pow(0.9144 , 2),
-    'Sq_miles'          =>   pow(1609.344 , 2),
-    'Sq_millimeters'    =>   pow(0.001 , 2),
-    'Sq_centimeters'    =>   pow(0.01 , 2),
-    'Sq_meters'         =>   pow(1 , 2),
-    'Sq_kilometers'     =>   pow(1000 , 2),
-    'Sq_acer'           =>   4046.8564224,
-    'Sq_inches'         =>   10000,
+    'Sq_inches'         => pow(0.0254 , 2),
+    'Sq_foots'          => pow(0.3048 , 2),
+    'Sq_yards'          => pow(0.9144 , 2),
+    'Sq_miles'          => pow(1609.344 , 2),
+    'Sq_millimeters'    => pow(0.001 , 2),
+    'Sq_centimeters'    => pow(0.01 , 2),
+    'Sq_meters'         => pow(1 , 2),
+    'Sq_kilometers'     => pow(1000 , 2),
+    'Sq_acer'           => 4046.8564224,
+    'Sq_inches'         => 10000,
 ]);
 
 function conver_to_meters($value , $from_unit)
