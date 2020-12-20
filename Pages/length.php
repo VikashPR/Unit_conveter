@@ -50,7 +50,7 @@ if($_POST['submit'])
 <body>
     <br>
     <div class="container">
-        <a href="/PHP/converter/index.php" class="btn btn-success">GO BACK</a>
+        <a href="/PHP/Unit_conveter/index.php" class="btn btn-success">GO BACK</a>
         <hr>
         <h1 class="text-center">------*Length Converter*------</h1>
         <form action="" method="post" class="jumbotron">

@@ -1,11 +1,11 @@
 <?php
 
-include_once('inc/function.php');
+require_once('inc/function.php');
 
 $from_value = '';
-$from_unit = '';
-$to_value = '';
-$to_unit = '';
+$from_unit  = '';
+$to_value   = '';
+$to_unit    ='';
 
 if($_POST['submit'])
 {
@@ -22,7 +22,7 @@ if($_POST['submit'])
 
     echo "<br>".
         '<div class="alert alert-Success" role="alert">
-        The value is'. $to_value . 
+        The value is = '. $to_value . 
         '</div>';
     }
     else
@@ -49,7 +49,7 @@ if($_POST['submit'])
 <body>
     <br>
     <div class="container">
-        <a href="/PHP/converter/index.php" class="btn btn-success">GO BACK</a>
+        <a href="/PHP/Unit_conveter/index.php" class="btn btn-success">GO BACK</a>
         <hr>
         <h1 class="text-center">------*Area Converter*------</h1>
         <form action="" method="post" class="jumbotron">
@@ -201,7 +201,6 @@ if($_POST['submit'])
                         }
                         ?>>Sq_hectare</option>
                         
-
                     </select>
                 </div>
             </div>

@@ -11,17 +11,8 @@ define('LENGTH_TO_METER',[
     'centimeters'       => 0.01,
     'meters'            => 1,
     'kilometers'        => 1000,
-    // !Sq_meter values
-    'Sq_inches'         => pow(0.0254 , 2),
-    'Sq_foots'          => pow(0.3048 , 2),
-    'Sq_yards'          => pow(0.9144 , 2),
-    'Sq_miles'          => pow(1609.344 , 2),
-    'Sq_millimeters'    => pow(0.001 , 2),
-    'Sq_centimeters'    => pow(0.01 , 2),
-    'Sq_meters'         => pow(1 , 2),
-    'Sq_kilometers'     => pow(1000 , 2),
-    'Sq_acer'           => 4046.8564224,
-    'Sq_inches'         => 10000,
+    'acer'           => 63.614907234075,
+    'hectare'         => 100,
 ]);
 
 function conver_to_meters($value , $from_unit)
@@ -65,26 +56,28 @@ function convert_length($value , $from_unit, $to_unit)
 
 function conver_to_Sq_meters($value , $from_unit)
 {
+    $from_unit = str_replace('Sq_', '' , $from_unit);
     if(array_key_exists($from_unit , LENGTH_TO_METER))
     {
-        return $value * LENGTH_TO_METER[$from_unit];
+        return $value * pow(LENGTH_TO_METER[$from_unit] , 2) ;
     }
     else
     {
         echo"<br>" .
-        '<div class="alert alert-danger" role="alert">Invalid Unit </div>';
+        '<div class="alert alert-danger" role="alert"> Invalid Unit </div>';
     }
 }
 function conver_from_Sq_meters($value , $to_unit)
 {
+    $to_unit = str_replace('Sq_' , '' ,$to_unit);
     if(array_key_exists($to_unit , LENGTH_TO_METER))
     {
-        return $value / LENGTH_TO_METER[$to_unit];
+        return $value / pow(LENGTH_TO_METER[$to_unit] , 2);
     }
     else
     {
             echo"<br>" .
-        '<div class="alert alert-danger" role="alert">Invalid Unit</div>';
+        '<div class="alert alert-danger" role="alert"> Invalid Unit </div>';
     }
 }
 function convert_Sq_length($value , $from_unit, $to_unit)
