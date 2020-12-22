@@ -1,3 +1,63 @@
+<?php
+
+require_once('inc/function.php');
+
+$from_value = '';
+$from_unit  = '';
+$to_value   = '';
+$to_unit    ='';
+
+if($_POST['submit'])
+{
+
+    if($_POST['from_value'] != 0) 
+    {
+    $from_value =  $_POST['from_value'];
+    $from_unit  =  $_POST['from_unit'];
+    $to_value   =  $_POST['to_value'];
+    $to_unit    =  $_POST['to_unit'];
+
+    $to_value = convert_volume($from_value , $from_unit , $to_unit);
+
+
+    echo "<br>".
+        '<div class="alert alert-Success" role="alert">
+        The value is = '. $to_value . 
+        '</div>';
+    }
+    else
+    {
+        echo "<br>".
+        '<div class="alert alert-danger" role="alert">
+        Enter The Values
+        </div>';
+    }
+} 
+$volume_options = array(
+    'cubic inches',
+    'cubic feet',
+    'Imperial gallons',
+    'Imperial quarts',
+    'Imperial pints',
+    'Imperial cups',
+    'Imperial ounces',
+    'Imperial tablespoons',
+    'Imperial teaspoons',
+    'US gallons',
+    'US quarts',
+    'US pints',
+    'US cups',
+    'US ounces',
+    'US tablespoons',
+    'US teaspoons',
+    'cubic centimeters',
+    'cubic meters',
+    'liters',
+    'milliliters'
+);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,11 +82,24 @@
                     <label>FROM:</label>&nbsp;
                 </div>
                 <div class="col-auto">
-                    <input type="text" class="form-control mb-2" type="text" name="from_value" placeholder="Value-1">
+                    <input type="text" class="form-control mb-2" type="text" placeholder="Value-1" name="from_value" value="<?php
+                    echo $from_value;
+                    ?>">
                 </div>
                 <div class="col-auto">
                     <select name="from_unit">
-                        <option>From_unit</option>
+                        <?php
+                        foreach($volume_options as $unit)
+                        {
+                            $opt = optionize($unit);
+                            echo "<option value=\"{$unit}\"";
+                            if($from_unit == "$unit")
+                            {
+                                echo " selected";
+                            }
+                            echo ">{$unit}</option>";
+                        }
+                        ?>
                     </select>
                 </div>
             </div>
@@ -36,18 +109,30 @@
                     <label>___TO:</label>
                 </div>
                 <div class="col-auto">
-                    <input type="text" class="form-control mb-2" type="text" name="to_value" placeholder="Value-2">
+                    <input type="text" class="form-control mb-2" type="text" placeholder="Value-2" name="to_value" value="<?php
+                    echo $to_value;
+                    ?>">
                 </div>
                 <div class="col-auto">
-                    <select name="To_unit">
-                        <option>To_unit</option>
+                <select name="to_unit">
+                        <?php
+                        foreach($volume_options as $unit)
+                        {
+                            $opt = optionize($unit);
+                            echo "<option value=\"{$opt}\"";
+                            if($to_unit == "$opt")
+                            {
+                                echo " selected";
+                            }
+                            echo ">{$unit}</option>";
+                        }
+                        ?>
                     </select>
                 </div>
             </div>
             <hr>
-            <input type="submit" class="btn btn-success" value="Submit">
+            <input type="submit" class="btn btn-success" name="submit" value="submit">
         </form>
     </div>
 </body>
-
 </html>

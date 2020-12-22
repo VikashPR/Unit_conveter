@@ -85,6 +85,17 @@ function convert_Sq_length($value , $from_unit, $to_unit)
     $meter_Sq_value = conver_to_Sq_meters($value , $from_unit);
     $new_Sq_value = conver_from_Sq_meters($meter_Sq_value , $to_unit);
     return $new_Sq_value;
-}                                                                       
+}       
 
+// NOTE volume function
+
+function optionize($string)
+{
+    return str_replace(' ' , '_' , strToLower($string));
+}
+
+function convert_volume()
+{
+
+}
 ?>
