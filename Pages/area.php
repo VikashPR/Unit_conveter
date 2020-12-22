@@ -33,6 +33,19 @@ if($_POST['submit'])
         </div>';
     }
 } 
+
+$length_options = [
+    'Sq_inches', 
+    'Sq_foots',
+    'Sq_yards',
+    'Sq_miles',
+    'Sq_millimeters',
+    'Sq_centimeters',
+    'Sq_meters',  
+    'Sq_kilometers',
+    'acer',
+    'hectare'    
+];
 ?>
 
 <!DOCTYPE html>
@@ -65,66 +78,17 @@ if($_POST['submit'])
                 </div>
                 <div class="col-auto">
                     <select  name="from_unit">
-                        <option value="Sq_inches" <?php 
-                        if($from_unit == 'Sq_inches')
+                    <?php
+                        foreach($length_options as $unit)
                         {
-                            echo " selected";
+                            echo "<option value=\"{$unit}\"";
+                            if($from_unit == "$unit")
+                            {
+                                echo " selected";
+                            }
+                            echo ">{$unit}</option>";
                         }
-                        ?>>Sq_inches</option>
-                        <option value="Sq_foots" <?php 
-                        if($from_unit == 'Sq_foots')
-                        {
-                            echo " selected";
-                        }
-                        ?>>Sq_foots</option>
-                        <option value="Sq_yards" <?php 
-                        if($from_unit == 'Sq_yards')
-                        {
-                            echo " selected";
-                        }
-                        ?>>Sq_yards</option>
-                        <option value="Sq_miles" <?php 
-                        if($from_unit == 'Sq_miles')
-                        {
-                            echo " selected";
-                        }
-                        ?>>Sq_miles</option>
-                        <option value="Sq_millimeters" <?php 
-                        if($from_unit == 'Sq_millimeters')
-                        {
-                            echo " selected";
-                        }
-                        ?>>Sq_millimeters</option>
-                        <option value="Sq_centimeters" <?php 
-                        if($from_unit == 'Sq_centimeters')
-                        {
-                            echo " selected";
-                        }
-                        ?>>Sq_centimeters</option>
-                        <option value="Sq_meters" <?php 
-                        if($from_unit == 'Sq_meters')
-                        {
-                            echo " selected";
-                        }
-                        ?>>Sq_meters</option>
-                        <option value="Sq_kilometers" <?php 
-                        if($from_unit == 'Sq_kilometers')
-                        {
-                            echo " selected";
-                        }
-                        ?>>Sq_kilometer</option>
-                        <option value="Sq_acer" <?php 
-                        if($from_unit == 'Sq_acer')
-                        {
-                            echo " selected";
-                        }
-                        ?>>Sq_acer</option>
-                        <option value="Sq_hectare" <?php 
-                        if($from_unit == 'Sq_hectare')
-                        {
-                            echo " selected";
-                        }
-                        ?>>Sq_hectare</option>
+                        ?>
                     </select>
                 </div>
             </div>
@@ -140,67 +104,17 @@ if($_POST['submit'])
                 </div>
                 <div class="col-auto">
                     <select name="to_unit">
-                        <option value="Sq_inches" <?php 
-                        if($to_unit == 'Sq_inches')
+                    <?php
+                        foreach($length_options as $unit)
                         {
-                            echo " selected";
+                            echo "<option value=\"{$unit}\"";
+                            if($to_unit == "$unit")
+                            {
+                                echo " selected";
+                            }
+                            echo ">{$unit}</option>";
                         }
-                        ?>>Sq_inches</option>
-                        <option value="Sq_foots" <?php 
-                        if($to_unit == 'Sq_foots')
-                        {
-                            echo " selected";
-                        }
-                        ?>>Sq_foots</option>
-                        <option value="Sq_yards" <?php 
-                        if($to_unit == 'Sq_yards')
-                        {
-                            echo " selected";
-                        }
-                        ?>>Sq_yards</option>
-                        <option value="Sq_miles" <?php 
-                        if($to_unit == 'Sq_miles')
-                        {
-                            echo " selected";
-                        }
-                        ?>>Sq_miles</option>
-                        <option value="Sq_millimeters" <?php 
-                        if($to_unit == 'Sq_millimeters')
-                        {
-                            echo " selected";
-                        }
-                        ?>>Sq_millimeters</option>
-                        <option value="Sq_centimeters" <?php 
-                        if($to_unit == 'Sq_centimeters')
-                        {
-                            echo " selected";
-                        }
-                        ?>>Sq_centimeters</option>
-                        <option value="Sq_meters" <?php 
-                        if($to_unit == 'Sq_meters')
-                        {
-                            echo " selected";
-                        }
-                        ?>>Sq_meters</option>
-                        <option value="Sq_kilometers" <?php 
-                        if($to_unit == 'Sq_kilometers')
-                        {
-                            echo " selected";
-                        }
-                        ?>>Sq_kilometers</option>
-                        <option value="Sq_acer" <?php 
-                        if($to_unit == 'Sq_acer')
-                        {
-                            echo " selected";
-                        }
-                        ?>>Sq_acer</option>
-                        <option value="Sq_hectare" <?php 
-                        if($to_unit == 'Sq_hectare')
-                        {
-                            echo " selected";
-                        }
-                        ?>>Sq_hectare</option>
-                        
+                        ?>
                     </select>
                 </div>
             </div>
